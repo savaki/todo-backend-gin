@@ -1,0 +1,9 @@
+# ignore utilities
+/gin-bin
+/todo-backend-gin
+
+# ignore intellij files
+/.idea
+/*.iml
+/*.ipr
+/*.iws
