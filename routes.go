@@ -3,7 +3,6 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
-	"os"
 )
 
 func makeRoutes(todo Todo) http.Handler {
