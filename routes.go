@@ -37,7 +37,7 @@ func makeRoutes(todo Todo) http.Handler {
 		template := TodoItem{}
 		if c.EnsureBody(&template) {
 			fqdn := func(path string) string {
-				return "http://todo-backend-golang.herokuapp.com:" + os.Getenv("PORT") + path
+				return "http://todo-backend-golang.herokuapp.com" + path
 			}
 			item := todo.Create(template, fqdn)
 			c.Writer.Header().Add("Location", "/todos/"+item.Id)
