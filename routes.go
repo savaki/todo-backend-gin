@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"net/http"
+	"os"
 )
 
 func makeRoutes(todo Todo) http.Handler {
@@ -36,7 +37,7 @@ func makeRoutes(todo Todo) http.Handler {
 		template := TodoItem{}
 		if c.EnsureBody(&template) {
 			fqdn := func(path string) string {
-				return "http://ec2-54-176-180-200.us-west-1.compute.amazonaws.com:8080" + path
+				return "http://todo-backend-golang.herokuapp.com:" + os.Getenv("PORT") + path
 			}
 			item := todo.Create(template, fqdn)
 			c.Writer.Header().Add("Location", "/todos/"+item.Id)
